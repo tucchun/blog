@@ -2,19 +2,22 @@ const path = require('path')
 const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.conf.js')
+const config = require('../config/config');
+console.log(config)
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const webpackConfig = config.webpackConfig;
 
 module.exports = merge(baseConfig, {
-  entry: './src/vue-router.js',
+  entry: webpackConfig.entry,  //'./src/vue-router.js',
   output: {
-    filename: 'ver-router.js'
+    filename: webpackConfig.output.filename//'ver-router.js'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.join(__dirname, '../src/vue-router.template.html')
+      template: path.join(__dirname, webpackConfig.htmlTemplate)//'../src/vue-router.template.html')
     })
   ],
   devServer: {
