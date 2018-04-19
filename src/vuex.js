@@ -26,20 +26,35 @@ const store = new Vuex.Store({
     increment (state) {
       state.count++
     }
+  },
+  actions: {
+    increment (context) {
+      setTimeout(() => {
+        context.commit('increment')
+      }, 3 * 1000)
+    }
   }
 })
 
 const CounterExample = {
   template: `
     <div>
+      <p>count: {{count}}</p>
       <p>{{doneTodosCount}}</p>
       <p>{{doneTodos}}</p>
       <p>{{todos}}</p>
       <p v-for='todo in doneTodos'>
         {{todo.text + ' ' + todo.id}}
       </p>
+      <button @click='increment'>increment</button>
     </div>
   `,
+  methods: {
+    increment: function () {
+      debugger
+      this.$emit('increment')
+    }
+  },
   computed: {
     ...mapState({
       count: 'count',
@@ -58,9 +73,15 @@ new Vue({
   components: {
     CounterExample: CounterExample
   },
+  methods: {
+    'increment': function () {
+      debugger
+      this.$store.dispatch('increment')
+    }
+  },
   template: `
     <div>
-      <counter-example></counter-example/>
+      <counter-example @increment='increment'></counter-example/>
     </div>
   `
 })
