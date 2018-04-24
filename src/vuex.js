@@ -1,29 +1,30 @@
 
 import Vue from 'vue'
-import Vuex, {mapState, mapGetters} from 'vuex'
+import Vuex, { mapState, mapGetters } from 'vuex'
 Vue.use(Vuex)
 
-const store = new Vuex.Store({
+let moduleA = {
   state: {
     count: 0,
     todos: [
-      {id: 1, text: 'one', done: true},
-      {id: 2, text: 'two', done: false}
+      { id: 1, text: 'one', done: true },
+      { id: 2, text: 'two', done: false }
     ]
   },
   getters: {
-    doneTodos: state => {
-      return state.todos.filter(todo => todo.done)
-    },
-    doneTodosCount: (state, getters) => {
-      return getters.doneTodos.length
-    },
-    getTodoById: (state) => (id) => {
-      return state.todos.find(todo => todo.id === id)
-    }
+    // doneTodos: state => {
+    //   return state.todos.filter(todo => todo.done)
+    // },
+    // doneTodosCount: (state, getters) => {
+    //   return getters.doneTodos.length
+    // },
+    // getTodoById: (state) => (id) => {
+    //   return state.todos.find(todo => todo.id === id)
+    // }
   },
   mutations: {
     increment (state) {
+      debugger
       state.count++
     }
   },
@@ -34,18 +35,54 @@ const store = new Vuex.Store({
       }, 3 * 1000)
     }
   }
+}
+
+let moduleB = {
+  state: {
+    count: 0,
+    todos: [
+      { id: 1, text: 'one', done: true },
+      { id: 2, text: 'two', done: false }
+    ]
+  },
+  getters: {
+    // doneTodos: state => {
+    //   return state.todos.filter(todo => todo.done)
+    // },
+    // doneTodosCount: (state, getters) => {
+    //   return getters.doneTodos.length
+    // },
+    // getTodoById: (state) => (id) => {
+    //   return state.todos.find(todo => todo.id === id)
+    // }
+  },
+  mutations: {
+    increment (state) {
+      debugger
+      state.count++
+    }
+  },
+  actions: {
+    increment (context) {
+      setTimeout(() => {
+        context.commit('increment')
+      }, 3 * 1000)
+    }
+  }
+}
+
+const store = new Vuex.Store({
+  modules: {
+    a: moduleA,
+    b: moduleB
+  }
 })
 
 const CounterExample = {
   template: `
     <div>
       <p>count: {{count}}</p>
-      <p>{{doneTodosCount}}</p>
-      <p>{{doneTodos}}</p>
       <p>{{todos}}</p>
-      <p v-for='todo in doneTodos'>
-        {{todo.text + ' ' + todo.id}}
-      </p>
       <button @click='increment'>increment</button>
     </div>
   `,

@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<style>
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    p {
+        background-image: -webkit-linear-gradient(bottom,green 0%, #ccc 50%);
+        background-image: linear-gradient(bottom, green 50%, #ccc 50%);
+        background-size: 100% 100px;
+        background-repeat: no-repeat;
+        background-position: bottom right;
+    }
+    .bg{
+        background: linear-gradient(#fff, #333);
+
+        height: 100px;
+        width: 100px;
+    }
+</style>
+
 <body>
+    <div class="bg"></div>
     <div id="app"></div>
 </body>
+
 </html>
