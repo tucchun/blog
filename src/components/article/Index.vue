@@ -3,24 +3,31 @@
     <h2 class="hometitle">最新文章</h2>
     <ul>
       <Item />
+      <Item />
+      <Item />
+      <Item />
+      <Item />
     </ul>
   </div>
 </template>
 
 <script>
+import 'lib/normalize.css/normalize.css'
+import '@/common/styles/common.css'
 import Summary from './Summary.vue'
+
 export default {
   components: {
     Item: Summary
   }
-};
+}
 </script>
 
-<style>
+<style scoped>
+
 .newblogs {
   background: #fff;
   overflow: hidden;
-  width: 68%;
-  float: left;
+  width: 100%;
 }
 </style>

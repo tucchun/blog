@@ -29,20 +29,24 @@
 </template>
 
 <script>
-export default {};
+import 'lib/normalize.css/normalize.css'
+import '@/common/styles/common.css'
+export default {}
 </script>
 
-<style>
+<style scoped>
 .topnav {
   width: 100%;
   overflow: hidden;
-} /*导航颜色*/
+  background-color: #333;
+}
+/*导航颜色*/
 nav {
   width: 1200px;
   margin: auto;
   color: #999;
   line-height: 32px;
-  background: url(../images/logo.png) no-repeat left 10px top 13px;
+  background: url(./images/logo.png) no-repeat left 10px top 13px;
 }
 nav ul {
   text-align: right;

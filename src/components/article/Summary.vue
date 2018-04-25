@@ -1,37 +1,39 @@
 <template>
-  <div>
+  <div class="wrapper">
     <h3 class="blogtitle">
-    <span>
-      <a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a>
-    </span>
-    <a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
-  </h3>
-  <div class="bloginfo">
-    <span class="blogpic">
-      <a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法">
-        <img src="images/t01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法" />
-      </a>
-    </span>
-    <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+      <span>
+        <a href="/jstt/css3/" title="css3" target="_blank" class="classname">个人博客</a>
+      </span>
+      <a href="/jstt/css3/2018-03-26/812.html" target="_blank">帝国cms 首页或者列表无图，不使用默认图片的方法</a>
+    </h3>
+    <div class="bloginfo">
+      <span class="blogpic">
+        <a href="/jstt/css3/2018-03-26/812.html" title="帝国cms 首页或者列表无图，不使用默认图片的方法">
+          <img src="images/t01.jpg" alt="帝国cms 首页或者列表无图，不使用默认图片的方法" />
+        </a>
+      </span>
+      <p>帝国cms列表页图文展示，或者首页图文展示，如果使用全图和文字，编辑起来比较麻烦，因为每一篇文章，你都得花时间去配图，所以，可有使用以下方法来实现。</p>
+    </div>
+    <div class="autor">
+      <span class="lm f_l"></span>
+      <span class="dtime f_l">2018-03-26</span>
+      <span class="viewnum f_l">浏览（
+        <a href="/">1429</a>）</span>
+      <span class="f_r">
+        <a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文>></a>
+      </span>
+    </div>
+    <div class="line"></div>
   </div>
-  <div class="autor">
-    <span class="lm f_l"></span>
-    <span class="dtime f_l">2018-03-26</span>
-    <span class="viewnum f_l">浏览（
-      <a href="/">1429</a>）</span>
-    <span class="f_r">
-      <a href="/jstt/css3/2018-03-26/812.html" class="more">阅读原文>></a>
-    </span>
-  </div>
-  <div class="line"></div>
-</div>
 </template>
 
 <script>
-export default {};
+import 'lib/normalize.css/normalize.css'
+import '@/common/styles/common.css'
+export default {}
 </script>
 
-<style>
+<style scoped>
 h3.blogtitle {
   line-height: 30px;
   height: 30px;
@@ -77,15 +79,6 @@ h3.blogtitle {
   margin-right: 20px;
   background: #333;
 }
-.newblogs ul {
-  padding: 10px;
-  overflow: hidden;
-}
-.newblogs li {
-  border-bottom: #ccc 1px solid;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
 .autor {
   width: 100%;
   overflow: hidden;
@@ -106,16 +99,13 @@ h3.blogtitle {
   text-decoration: underline;
 }
 .lm {
-  background: url(../images/newsbg01.png) no-repeat left center;
+  background: url("./images/newsbg01.png") no-repeat left center;
 }
 .dtime {
-  background: url(../images/posttime.gif) no-repeat left center;
+  background: url("./images/posttime.gif") no-repeat left center;
 }
 .viewnum {
-  background: url(../images/newsbg04.png) no-repeat left center;
-}
-.pingl {
-  background: url(../images/newsbg03.png) no-repeat left center;
+  background: url("./images/newsbg04.png") no-repeat left center;
 }
 .blogpic img {
   width: 100%;
@@ -134,68 +124,14 @@ h3.blogtitle {
   -moz-transition: all 5s ease;
   -webkit-transition: all 5s ease;
   transition: all 5s ease;
-} 
-/* line 过渡*/
-.newblogs li:hover .line {
+}
+.wrapper:hover .line{
   width: 100%;
 }
-.rbox {
-  width: 30%;
+
+.wrapper{
+  border-bottom: #ccc 1px solid;
+  margin-bottom: 10px;
   overflow: hidden;
-  float: right;
-}
-.paihang {
-  background: #fff;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-.paihang ul {
-  padding: 10px;
-}
-.paihang ul li {
-  border-bottom: solid 1px #eaeaea;
-  font-size: 14px;
-  margin: 0 0 10px 0;
-  padding: 0 0 10px 0;
-  overflow: hidden;
-}
-.paihang ul li b {
-  height: 30px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: block;
-}
-.paihang ul li p {
-  line-height: 24px;
-  color: #888;
-}
-.paihang ul li a:hover {
-  color: #000;
-}
-.paihang ul li:hover p {
-  color: #000;
-}
-.paihang ul li:hover b a {
-  color: #000;
-}
-.paihang li i {
-  width: 100px;
-  height: 90px;
-  overflow: hidden;
-  display: block;
-  border: #efefef 1px solid;
-  float: left;
-  margin-right: 10px;
-}
-.paihang li img {
-  height: 100%;
-  margin: auto;
-  -moz-transition: all 0.5s ease;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
-}
-.paihang ul li:hover i img {
-  transform: scale(1.1);
 }
 </style>

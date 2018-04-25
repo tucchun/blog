@@ -2,10 +2,10 @@
 let config = {}
 
 let webpackConfig = {}
-webpackConfig.entry = './src/vuex.js'
+webpackConfig.entry = './src/main.js'
 webpackConfig.output = {}
-webpackConfig.output.filename = 'vuex.js'
-webpackConfig.htmlTemplate = '../src/vuex.template.html'
+webpackConfig.output.filename = 'index.js'
+webpackConfig.htmlTemplate = '../src/index.template.html'
 
 config.webpackConfig = webpackConfig
 

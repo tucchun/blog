@@ -3,7 +3,6 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.conf.js')
 const config = require('../config/config');
-console.log(config)
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpackConfig = config.webpackConfig;
