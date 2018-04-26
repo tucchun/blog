@@ -1,6 +1,7 @@
 <template>
   <div class="newblogs">
-    <h2 class="hometitle">最新文章</h2>
+    <home-title title='最新文章'/>
+    <!-- <h2 class="hometitle">最新文章</h2> -->
     <ul>
       <Item />
       <Item />
@@ -15,9 +16,11 @@
 import 'lib/normalize.css/normalize.css'
 import '@/common/styles/common.css'
 import Summary from './Summary.vue'
+import HomeTitle from '@/components/hometitle'
 
 export default {
   components: {
+    HomeTitle,
     Item: Summary
   }
 }
@@ -29,5 +32,10 @@ export default {
   background: #fff;
   overflow: hidden;
   width: 100%;
+}
+
+.newblogs ul{
+  padding: 10px;
+  overflow: hidden;
 }
 </style>

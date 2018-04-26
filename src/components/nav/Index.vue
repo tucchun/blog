@@ -50,13 +50,14 @@ nav {
 }
 nav ul {
   text-align: right;
-  height: 46px;
-  line-height: 46px;
+  padding: 10px 0;
+  margin: 0;
 }
 nav ul li {
-  display: inline;
+  display: inline-block;
   font-size: 16px;
-  padding: 0px 20px;
+  padding: 10px 20px;
+  line-height: 1;
 }
 nav ul li a {
   color: #fff;

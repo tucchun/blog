@@ -7,6 +7,8 @@
 </template>
 
 <script>
+import 'lib/normalize.css/normalize.css'
+import '@/common/styles/common.css'
 export default {}
 </script>
 
@@ -17,6 +19,7 @@ export default {}
   color: #a5a4a4;
   text-align: center;
   padding: 20px 0;
+  margin: 0;
 }
 .footer a {
   color: #a5a4a4;

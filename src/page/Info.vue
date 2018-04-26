@@ -14,7 +14,7 @@
 </template>
 <script>
 import Header from '@/components/header'
-import Article from '@/components/list'
+import Article from '@/components/info'
 import Footer from '@/components/footer'
 import Classify from '@/components/classify'
 export default {

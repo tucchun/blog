@@ -1,7 +1,7 @@
 import Vue from 'vue'
 // import Nav from '@/components/nav'
 // import Article from '@/components/article'
-import Index from '@/page'
+import Index from '@/page/Info'
 
 /* eslint-disable no-new */
 new Vue({
