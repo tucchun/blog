@@ -1,19 +1,21 @@
 const path = require('path')
-const cssnano = require('cssnano');
-
-function resolve(dir) {
+const webpack = require('webpack')
+// const vueLoaderConfig = require('./vue-loader.conf')
+const isProd = process.env.NODE_ENV === 'production'
+function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
 module.exports = {
+  // noParse: /es6-promise\.js$/, // avoid webpack shimming process
   context: path.resolve(__dirname, '../'),
-  // entry: {
-  //   app: './src/main.js'
-  // },
+  // devtool: isProd
+  //   ? false
+  //   : '#cheap-module-source-map',
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].js',
-    publicPath: '/'
+    publicPath: '/dist/',
+    filename: '[name].[chunkhash].js'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
@@ -38,6 +40,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
+        // options: vueLoaderConfig
       },
       {
         test: /\.js$/,
@@ -48,7 +51,8 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-            loader: 'style-loader'
+            // loader: 'style-loader'
+            loader: 'vue-style-loader'
           }
         ].concat([
           {
@@ -60,28 +64,11 @@ module.exports = {
           }
         ]).concat([
           {
-            loader: 'postcss-loader',
-            options: {
-              plugins: function () {
-                return [
-                  cssnano({
-                    autoprefixer: {
-                      add: true,
-                      remove: true,
-                      browsers: ['ie >= 8', 'firefox >= 15']
-                    },
-                    discardComments: {
-                      removeAll: true
-                    },
-                    discardUnused: false,
-                    mergeIdents: false,
-                    reduceIdents: false,
-                    safe: true,
-                    sourcemap: true
-                  })
-                ]
-              }
-            }
+            loader: 'resolve-url-loader'
+          }
+        ]).concat([
+          {
+            loader: 'postcss-loader'
           }
         ])
       },
@@ -162,11 +149,18 @@ module.exports = {
           options: {
             limit: 8192,
             name: '[path][hash].[ext]'
-          },
-        }],
+          }
+        }]
       }
     ]
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    })
+  ],
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
     // source contains it (although only uses it if it's native).

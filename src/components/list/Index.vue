@@ -3,25 +3,31 @@
     <home-title title='最新文章'/>
     <!-- <h2 class="hometitle">最新文章</h2> -->
     <ul>
-      <Item />
-      <Item />
-      <Item />
-      <Item />
-      <Item />
+      <li v-for='item in blogList' v-bind:key='item.id'>
+        <Item v-on:clickSummary='clickSummary' v-bind='item'/>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import 'lib/normalize.css/normalize.css'
-import '@/common/styles/common.css'
+// import 'lib/normalize.css/normalize.css'
+// import '@/common/styles/common.css'
 import Summary from './Summary.vue'
 import HomeTitle from '@/components/hometitle'
 
 export default {
+  props: [
+    'blogList'
+  ],
   components: {
     HomeTitle,
     Item: Summary
+  },
+  methods: {
+    clickSummary (blogId) {
+      this.$emit('clickSummary', blogId)
+    }
   }
 }
 </script>

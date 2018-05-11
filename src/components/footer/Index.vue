@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import 'lib/normalize.css/normalize.css'
-import '@/common/styles/common.css'
+// import 'lib/normalize.css/normalize.css'
+// import '@/common/styles/common.css'
 export default {}
 </script>
 
