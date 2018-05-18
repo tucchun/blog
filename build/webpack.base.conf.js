@@ -1,7 +1,17 @@
 const path = require('path')
 const webpack = require('webpack')
 // const vueLoaderConfig = require('./vue-loader.conf')
+const utils = require('./utils')
+const config = require('../config')
 const isProd = process.env.NODE_ENV === 'production'
+let cssConfig = isProd ? {
+  sourceMap: config.build.productionSourceMap,
+  extract: true,
+  usePostCSS: true
+} : {
+  sourceMap: config.dev.cssSourceMap,
+  usePostCSS: true
+}
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -47,31 +57,7 @@ module.exports = {
         loader: 'babel-loader',
         include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')]
       },
-      {
-        test: /\.css$/,
-        use: [
-          {
-            // loader: 'style-loader'
-            loader: 'vue-style-loader'
-          }
-        ].concat([
-          {
-            loader: 'css-loader',
-            options: {
-              sourceMap: true,
-              minimize: false
-            }
-          }
-        ]).concat([
-          {
-            loader: 'resolve-url-loader'
-          }
-        ]).concat([
-          {
-            loader: 'postcss-loader'
-          }
-        ])
-      },
+      ...utils.styleLoaders(cssConfig),
       {
         test: /\.woff(\?.*)?$/,
         use: [{

@@ -14,6 +14,10 @@ export function createRouter () {
       {
         path: '/info/:blogId',
         component: () => import('@/views/Info.vue')
+      },
+      {
+        path: '/classify',
+        component: () => import('@/views/Classify.vue')
       }
     ]
   })

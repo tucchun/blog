@@ -92,7 +92,11 @@ function render (req, res) {
 app.use(express.static(path.resolve(__dirname, './dist')))
 app.use(favicon('./build/logo.png'))
 app.get('*', isProd ? render : (req, res) => {
-  readyPromise.then(() => render(req, res))
+  readyPromise.then(() => {
+    render(req, res)
+  }).catch(err => {
+    console.log(err)
+  })
 })
 
 app.listen(port, (msg) => {

@@ -2,11 +2,11 @@ const webpack = require('webpack')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base.conf.js')
 const VueSSRClientPlugin = require('vue-server-renderer/client-plugin')
-
 module.exports = merge(baseConfig, {
   entry: {
     app: './src/entry-client.js'
   },
+
   // resolve: {
   //   alias: {
   //     'create-api': './create-api-client.js'
