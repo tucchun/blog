@@ -10,38 +10,5 @@ export default {
 }
 </script>
 <style scoped>
-  @import url(./common/styles/common.css);
-  body {
-    font: 14px '微软雅黑', Arial, Helvetica, sans-serif;
-    background: #f1f1f1;
-    background-attachment: fixed;
-    color: #555;
-  }
-  img {
-    border: 0;
-    display: block;
-  }
-  ul,
-  li {
-    list-style: none;
-  }
-  /*默认链接颜色 */
-  a {
-    text-decoration: none;
-    color: #555;
-  }
-  .clear:after {
-    content: '.';
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-  }
-  /* .clear{*+height:1%;} */
-  .f_l {
-    float: left;
-  }
-  .f_r {
-    float: right;
-  }
+  @import url(./assets/styles/common.css);
 </style>

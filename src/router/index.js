@@ -18,6 +18,18 @@ export function createRouter () {
       {
         path: '/classify',
         component: () => import('@/views/Classify.vue')
+      },
+      {
+        path: '/dialog',
+        component: () => import('@/components/dialog/Dialog.vue')
+      },
+      {
+        path: '/ct',
+        component: () => import('@/components/classify/Classify.vue')
+      },
+      {
+        path: '/books',
+        component: () => import('@/components/classify/Books.vue')
       }
     ]
   })

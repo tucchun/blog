@@ -1,6 +1,6 @@
 const path = require('path')
 const webpack = require('webpack')
-// const vueLoaderConfig = require('./vue-loader.conf')
+const vueLoaderConfig = require('./vue-loader.conf')
 const utils = require('./utils')
 const config = require('../config')
 const isProd = process.env.NODE_ENV === 'production'
@@ -28,11 +28,13 @@ module.exports = {
     filename: '[name].[chunkhash].js'
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.vue', '.json', 'css', 'scss'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'lib': resolve('node_modules')
+      'lib': resolve('node_modules'),
+      'components': resolve('src/components'),
+      'assets': resolve('src/assets')
     }
   },
   module: {
@@ -49,8 +51,8 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        loader: 'vue-loader'
-        // options: vueLoaderConfig
+        loader: 'vue-loader',
+        options: vueLoaderConfig
       },
       {
         test: /\.js$/,

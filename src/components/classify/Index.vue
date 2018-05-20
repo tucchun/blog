@@ -16,8 +16,6 @@
 </template>
 
 <script>
-// import 'lib/normalize.css/normalize.css'
-// import '@/common/styles/common.css'
 import HomeTitle from '@/components/hometitle'
 export default {
   components: {

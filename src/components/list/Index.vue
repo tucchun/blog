@@ -11,8 +11,6 @@
 </template>
 
 <script>
-// import 'lib/normalize.css/normalize.css'
-// import '@/common/styles/common.css'
 import Summary from './Summary.vue'
 import HomeTitle from '@/components/hometitle'
 
